@@ -3,24 +3,23 @@
 int main(){
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(NULL);
-    long k, sum=0l, result=0l;
+    long k, sum=0, result=0;
     std::cin >> k;
     char ch, cnt[10];
-    int i=0;
+
     for(int i=0; i<10; i++){
         cnt[i] = 0;
     }
     while(std::cin.get(ch)){
         if(ch>='0'&&ch<='9'){
             cnt[ch-'0']++;
-            sum += long(ch-'0');
-            i++;   
+            sum += long(ch-'0'); 
         }
     }
     
-    for(long i=0l;sum<k && i<10l; i++){
+    for(int i=0; sum<k && i<9; ++i){
         while(sum<k && cnt[i]>0){
-            sum += 9l-i;
+            sum += long(9-i);
             result++;
             cnt[i]--;
         }
